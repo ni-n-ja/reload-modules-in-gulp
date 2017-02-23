@@ -1,12 +1,17 @@
 'use strict';
 
 var gulp = require('gulp');
-gulp.task('command', function() {
+var a;
+gulp.task('command', function () {
     delete require.cache[require.resolve('./reload')];
     require('./reload');
+    a = require('./reload');
+    a.tango("reloaded");
 });
 
-gulp.task('default', function() {
+gulp.task('default', function () {
     require('./reload');
+    a = require('./reload');
+    a.tango("hello");
     gulp.watch('./*.js', ['command']);
 });
